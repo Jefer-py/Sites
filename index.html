@@ -1,288 +1,299 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uma coisinha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
+    <title>Meu jogo</title>
 
-    body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #ffeef3;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-    }
+    <meta property="og:title" content="Meu jogo">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
 
-    .caixa {
-        width: 90%;
-        max-width: 420px;
-        background: white;
-        padding: 30px 20px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        position: relative;
-        z-index: 2;
-    }
-
-    h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-        color: #333;
-    }
-
-    p {
-        color: #555;
-        font-size: 17px;
-        line-height: 1.5;
-    }
-
-    button {
-        border: none;
-        background: #ffb6c8;
-        padding: 13px 20px;
-        margin: 7px;
-        border-radius: 12px;
-        font-size: 17px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    button:hover {
-        transform: scale(1.06);
-        background: #ff9fba;
-    }
-
-    .grade {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        margin-top: 20px;
-    }
-
-    .grade button {
-        width: 100%;
-        height: 65px;
-        margin: 0;
-        font-size: 24px;
-    }
-
-    .coracao {
-        font-size: 70px;
-        background: none;
-        padding: 10px;
-    }
-
-    .assinatura {
-        position: fixed;
-        bottom: 8px;
-        right: 10px;
-        font-size: 11px;
-        color: #b47a88;
-        z-index: 5;
-    }
-
-    .coracao-caindo {
-        position: fixed;
-        top: -30px;
-        font-size: 20px;
-        animation: cair 4s linear forwards;
-        z-index: 1;
-    }
-
-    @keyframes cair {
-        from {
-            transform: translateY(0);
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        to {
-            transform: translateY(110vh);
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffeef3;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
-    }
-</style>
+
+        .caixa {
+            width: 90%;
+            max-width: 420px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        button {
+            border: none;
+            background: #ffb6c8;
+            padding: 13px 20px;
+            margin: 7px;
+            border-radius: 12px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.06);
+            background: #ff9fba;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .grade button {
+            width: 100%;
+            height: 65px;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .coracao {
+            font-size: 70px;
+            background: none;
+            padding: 10px;
+        }
+
+        .assinatura {
+            position: fixed;
+            bottom: 8px;
+            right: 10px;
+            font-size: 11px;
+            color: #b47a88;
+            z-index: 5;
+        }
+
+        .coracao-caindo {
+            position: fixed;
+            top: -30px;
+            font-size: 20px;
+            animation: cair 4s linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes cair {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="caixa" id="jogo">
+    <div class="caixa" id="jogo">
 
-    <h1>Ei...</h1>
+        <h1>Ei...</h1>
 
-    <p>
-        Eu fiz uma coisinha aqui.<br>
-        Não é nada demais kkk
-    </p>
+        <p>
+            Eu fiz uma coisinha aqui.<br>
+            Não é nada demais kkk
+        </p>
 
-    <p>Quer ver?</p>
+        <p>Quer ver?</p>
 
-    <button onclick="comecar()">sim ❤️</button>
-    <button onclick="comecar()">claro 💕</button>
+        <button onclick="comecar()">sim ❤️</button>
+        <button onclick="comecar()">claro 💕</button>
 
-</div>
+    </div>
 
-<div class="assinatura">
-    feito com carinho para carla ❤️
-</div>
+    <div class="assinatura">
+        feito com carinho para carla ❤️
+    </div>
 
-<script>
+    <script>
 
-let cliques = 0;
+        let cliques = 0;
 
-const emojis = ["❤️", "😂", "👀", "💗", "😳"];
+        const emojis = ["❤️", "😂", "👀", "💗", "😳"];
 
-function comecar() {
+        function comecar() {
 
-    document.getElementById("jogo").innerHTML = `
-        <h1>Tá...</h1>
-        <p>Agora clica em algum botão.</p>
-        <p>Só não vale reclamar depois</p>
+            document.getElementById("jogo").innerHTML = `
+                <h1>Tá...</h1>
 
-        <div class="grade" id="grade"></div>
-    `;
+                <p>Agora clica em algum botão.</p>
 
-    criarBotoes();
-}
+                <p>Só não vale reclamar depois</p>
 
-function criarBotoes() {
+                <div class="grade" id="grade"></div>
+            `;
 
-    const grade = document.getElementById("grade");
+            criarBotoes();
+        }
 
-    for (let i = 0; i < 9; i++) {
+        function criarBotoes() {
 
-        const botao = document.createElement("button");
+            const grade = document.getElementById("grade");
 
-        botao.innerText = "?";
+            for (let i = 0; i < 9; i++) {
 
-        botao.onclick = function() {
+                const botao = document.createElement("button");
 
-            if (botao.innerText === "?") {
+                botao.innerText = "?";
 
-                botao.innerText =
-                    emojis[Math.floor(Math.random() * emojis.length)];
+                botao.onclick = function () {
 
-                cliques++;
+                    if (botao.innerText === "?") {
 
-                if (cliques >= 3) {
-                    setTimeout(segundoJogo, 500);
-                }
+                        botao.innerText =
+                            emojis[Math.floor(Math.random() * emojis.length)];
+
+                        cliques++;
+
+                        if (cliques >= 3) {
+
+                            setTimeout(segundoJogo, 500);
+
+                        }
+                    }
+                };
+
+                grade.appendChild(botao);
             }
-        };
+        }
 
-        grade.appendChild(botao);
-    }
-}
+        function segundoJogo() {
 
-function segundoJogo() {
+            cliques = 0;
 
-    cliques = 0;
+            document.getElementById("jogo").innerHTML = `
+                <h1>Tá ficando interessante...</h1>
 
-    document.getElementById("jogo").innerHTML = `
-        <h1>Tá ficando interessante...</h1>
+                <p>Agora clica no coração</p>
 
-        <p>Agora clica no coração</p>
+                <button class="coracao" onclick="clicarCoracao()">❤️</button>
 
-        <button class="coracao" onclick="clicarCoracao()">❤️</button>
+                <p id="contador"></p>
+            `;
+        }
 
-        <p id="contador"></p>
-    `;
-}
+        function clicarCoracao() {
 
-function clicarCoracao() {
+            cliques++;
 
-    cliques++;
+            const contador = document.getElementById("contador");
 
-    const contador = document.getElementById("contador");
+            if (cliques === 1) {
 
-    if (cliques === 1) {
-        contador.innerText = "Mais uma vez";
-    }
+                contador.innerText = "Mais uma vez";
 
-    else if (cliques === 2) {
-        contador.innerText = "Mais uma...";
-    }
+            } else if (cliques === 2) {
 
-    else if (cliques === 3) {
-        contador.innerText = "Agora foi";
+                contador.innerText = "Mais uma...";
 
-        setTimeout(ultimaParte, 700);
-    }
-}
+            } else if (cliques === 3) {
 
-function ultimaParte() {
+                contador.innerText = "Agora foi";
 
-    document.getElementById("jogo").innerHTML = `
-        <h1>Última coisa.</h1>
+                setTimeout(ultimaParte, 700);
+            }
+        }
 
-        <p>Prometo.</p>
+        function ultimaParte() {
 
-        <p>Clica aqui:</p>
+            document.getElementById("jogo").innerHTML = `
+                <h1>Última coisa.</h1>
 
-        <button onclick="finalizar()">aqui</button>
-    `;
-}
+                <p>Prometo.</p>
 
-function finalizar() {
+                <p>Clica aqui:</p>
 
-    document.getElementById("jogo").innerHTML = `
-        <div style="font-size:70px;">❤️</div>
+                <button onclick="finalizar()">aqui</button>
+            `;
+        }
 
-        <h1>Pronto.</h1>
+        function finalizar() {
 
-        <p>
-            Era só uma desculpa pra fazer você
-            ficar aqui mais um pouquinho.
-        </p>
+            document.getElementById("jogo").innerHTML = `
+                <div style="font-size:70px;">❤️</div>
 
-        <p>
-            Eu gosto muito de você, meu amor ❤️
-        </p>
+                <h1>Pronto.</h1>
 
-        <p>
-            fiz isso pensando em você
-        </p>
-    `;
+                <p>
+                    Era só uma desculpa pra fazer você
+                    ficar aqui mais um pouquinho.
+                </p>
 
-    coracoes();
-}
+                <p>
+                    Eu gosto muito de você, meu amor ❤️
+                </p>
 
-function coracoes() {
+                <p>
+                    fiz isso pensando em você
+                </p>
+            `;
 
-    for (let i = 0; i < 25; i++) {
+            coracoes();
+        }
 
-        setTimeout(() => {
+        function coracoes() {
 
-            const coracao = document.createElement("div");
+            for (let i = 0; i < 25; i++) {
 
-            coracao.className = "coracao-caindo";
-            coracao.innerText = "❤️";
+                setTimeout(() => {
 
-            coracao.style.left =
-                Math.random() * 100 + "vw";
+                    const coracao = document.createElement("div");
 
-            coracao.style.animationDuration =
-                (3 + Math.random() * 3) + "s";
+                    coracao.className = "coracao-caindo";
 
-            document.body.appendChild(coracao);
+                    coracao.innerText = "❤️";
 
-            setTimeout(() => {
-                coracao.remove();
-            }, 6000);
+                    coracao.style.left =
+                        Math.random() * 100 + "vw";
 
-        }, i * 150);
-    }
-}
+                    coracao.style.animationDuration =
+                        (3 + Math.random() * 3) + "s";
 
-</script>
+                    document.body.appendChild(coracao);
+
+                    setTimeout(() => {
+                        coracao.remove();
+                    }, 6000);
+
+                }, i * 150);
+            }
+        }
+
+    </script>
 
 </body>
+
 </html>
-```
