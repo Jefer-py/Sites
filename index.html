@@ -1,397 +1,288 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uma surpresa para você ❤️</title>
- 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma coisinha</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffeef3;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .caixa {
+        width: 90%;
+        max-width: 420px;
+        background: white;
+        padding: 30px 20px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    p {
+        color: #555;
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    button {
+        border: none;
+        background: #ffb6c8;
+        padding: 13px 20px;
+        margin: 7px;
+        border-radius: 12px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.06);
+        background: #ff9fba;
+    }
+
+    .grade {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .grade button {
+        width: 100%;
+        height: 65px;
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .coracao {
+        font-size: 70px;
+        background: none;
+        padding: 10px;
+    }
+
+    .assinatura {
+        position: fixed;
+        bottom: 8px;
+        right: 10px;
+        font-size: 11px;
+        color: #b47a88;
+        z-index: 5;
+    }
+
+    .coracao-caindo {
+        position: fixed;
+        top: -30px;
+        font-size: 20px;
+        animation: cair 4s linear forwards;
+        z-index: 1;
+    }
+
+    @keyframes cair {
+        from {
+            transform: translateY(0);
         }
- 
-        body {
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffb6c1, #ffd6e0, #ffeef3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: #5a2632;
+
+        to {
+            transform: translateY(110vh);
         }
- 
-        .coracao {
-            position: fixed;
-            top: -30px;
-            font-size: 25px;
-            animation: cair linear forwards;
-            pointer-events: none;
-            z-index: 0;
-        }
- 
-        @keyframes cair {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
- 
-        .caixa {
-            position: relative;
-            z-index: 2;
-            width: 90%;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 35px 25px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(100, 20, 40, 0.2);
-            animation: aparecer 0.8s ease;
-        }
- 
-        @keyframes aparecer {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
- 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
- 
-        .emoji {
-            font-size: 65px;
-            margin-bottom: 15px;
-        }
- 
-        h1 {
-            font-size: 30px;
-            margin-bottom: 15px;
-            color: #d6336c;
-        }
- 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
- 
-        button {
-            border: none;
-            padding: 14px 28px;
-            margin: 8px;
-            border-radius: 30px;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.25s;
-        }
- 
-        button:hover {
-            transform: scale(1.08);
-        }
- 
-        .sim {
-            background: #ff4d7d;
-            color: white;
-        }
- 
-        .claro {
-            background: #ff9fba;
-            color: white;
-        }
- 
-        .coracoes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 280px;
-            margin: 20px auto;
-        }
- 
-        .coracao-btn {
-            font-size: 38px;
-            background: transparent;
-            padding: 5px;
-            margin: 0;
-        }
- 
-        .coracao-btn:hover {
-            transform: scale(1.3);
-        }
- 
-        .estrela-area {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 25px 0;
-        }
- 
-        .estrela {
-            font-size: 40px;
-            background: transparent;
-            padding: 5px;
-            margin: 0;
-        }
- 
-        .mensagem-final {
-            animation: aparecer 1s ease;
-        }
- 
-        .mensagem-final h1 {
-            font-size: 32px;
-        }
- 
-        .assinatura {
-            margin-top: 20px;
-            font-size: 15px;
-            color: #9c5366;
-        }
- 
-        .escondido {
-            display: none;
-        }
- 
-        .brilho {
-            animation: brilho 1s infinite alternate;
-        }
- 
-        @keyframes brilho {
-            from {
-                transform: scale(1);
-            }
- 
-            to {
-                transform: scale(1.12);
-            }
-        }
-    </style>
+    }
+</style>
 </head>
- 
+
 <body>
- 
-    <div class="caixa">
- 
-        <!-- TELA 1 -->
-        <section id="inicio">
-            <div class="emoji">💌</div>
- 
-            <h1>Oi, Carla! ❤️</h1>
- 
-            <p>
-                Eu preparei uma pequena surpresa para você...
-                <br><br>
-                Mas antes, preciso saber uma coisa:
-            </p>
- 
-            <h1 style="font-size: 24px;">
-                Você aceita uma missão? 💕
-            </h1>
- 
-            <button class="sim" onclick="comecar()">Sim ❤️</button>
-            <button class="claro" onclick="comecar()">Claro 💕</button>
-        </section>
- 
- 
-        <!-- TELA 2 -->
-        <section id="coracaoJogo" class="escondido">
- 
-            <div class="emoji">💗</div>
- 
-            <h1>Primeira missão!</h1>
- 
-            <p>
-                Entre esses corações existe um especial...
-                <br>
-                Será que você consegue encontrar? 👀
-            </p>
- 
-            <div class="coracoes">
- 
-                <button class="coracao-btn" onclick="escolher(false)">💔</button>
- 
-                <button class="coracao-btn" onclick="escolher(false)">💗</button>
- 
-                <button class="coracao-btn" onclick="escolher(false)">💔</button>
- 
-                <button class="coracao-btn" onclick="escolher(false)">💗</button>
- 
-                <button class="coracao-btn" onclick="escolher(true)">❤️</button>
- 
-                <button class="coracao-btn" onclick="escolher(false)">💔</button>
- 
-            </div>
- 
-        </section>
- 
- 
-        <!-- TELA 3 -->
-        <section id="estrelasJogo" class="escondido">
- 
-            <div class="emoji">✨</div>
- 
-            <h1>Você encontrou! ❤️</h1>
- 
-            <p>
-                Sabia que você conseguiria.
-                <br><br>
-                Agora falta só uma última coisa...
-                <br>
-                Encontre as <b>3 estrelas especiais</b>. ⭐
-            </p>
- 
-            <div class="estrela-area">
- 
-                <button class="estrela" onclick="estrela(this)">⭐</button>
-                <button class="estrela" onclick="estrela(this)">🌟</button>
-                <button class="estrela" onclick="estrela(this)">✨</button>
-                <button class="estrela" onclick="estrela(this)">⭐</button>
-                <button class="estrela" onclick="estrela(this)">🌟</button>
-                <button class="estrela" onclick="estrela(this)">⭐</button>
- 
-            </div>
- 
-            <p id="contador">Estrelas encontradas: 0 / 3</p>
- 
-        </section>
- 
- 
-        <!-- TELA FINAL -->
-        <section id="final" class="escondido mensagem-final">
- 
-            <div class="emoji brilho">💖</div>
- 
-            <h1>Você conseguiu!</h1>
- 
-            <p>
-                Na verdade...
-                <br><br>
- 
-                A missão inteira era só uma desculpa
-                para te dizer uma coisa.
-            </p>
- 
-            <h1>
-                Eu gosto muito de você, Carla. ❤️
-            </h1>
- 
-            <p>
-                Espero que tenha gostado da surpresa. 🥰
-            </p>
- 
-            <div class="assinatura">
-                Feito com carinho especialmente para você 💕
-            </div>
- 
-        </section>
- 
-    </div>
- 
- 
-    <script>
- 
-        let estrelasEncontradas = 0;
- 
-        // Começa o jogo
-        function comecar() {
- 
-            document.getElementById("inicio").classList.add("escondido");
- 
-            document.getElementById("coracaoJogo")
-                .classList.remove("escondido");
-        }
- 
- 
-        // Escolha dos corações
-        function escolher(certo) {
- 
-            if (certo) {
- 
-                document.getElementById("coracaoJogo")
-                    .classList.add("escondido");
- 
-                document.getElementById("estrelasJogo")
-                    .classList.remove("escondido");
- 
-            } else {
- 
-                alert("Hmm... não é esse 😅❤️\nTenta de novo!");
- 
+
+<div class="caixa" id="jogo">
+
+    <h1>Ei...</h1>
+
+    <p>
+        Eu fiz uma coisinha aqui.<br>
+        Não é nada demais kkk
+    </p>
+
+    <p>Quer ver?</p>
+
+    <button onclick="comecar()">sim ❤️</button>
+    <button onclick="comecar()">claro 💕</button>
+
+</div>
+
+<div class="assinatura">
+    feito com carinho para carla ❤️
+</div>
+
+<script>
+
+let cliques = 0;
+
+const emojis = ["❤️", "😂", "👀", "💗", "😳"];
+
+function comecar() {
+
+    document.getElementById("jogo").innerHTML = `
+        <h1>Tá...</h1>
+        <p>Agora clica em algum botão.</p>
+        <p>Só não vale reclamar depois</p>
+
+        <div class="grade" id="grade"></div>
+    `;
+
+    criarBotoes();
+}
+
+function criarBotoes() {
+
+    const grade = document.getElementById("grade");
+
+    for (let i = 0; i < 9; i++) {
+
+        const botao = document.createElement("button");
+
+        botao.innerText = "?";
+
+        botao.onclick = function() {
+
+            if (botao.innerText === "?") {
+
+                botao.innerText =
+                    emojis[Math.floor(Math.random() * emojis.length)];
+
+                cliques++;
+
+                if (cliques >= 3) {
+                    setTimeout(segundoJogo, 500);
+                }
             }
-        }
- 
- 
-        // Encontrar estrelas
-        function estrela(botao) {
- 
-            if (botao.disabled) {
-                return;
-            }
- 
-            botao.disabled = true;
- 
-            botao.style.opacity = "0.4";
- 
-            estrelasEncontradas++;
- 
-            document.getElementById("contador").innerText =
-                "Estrelas encontradas: " +
-                estrelasEncontradas +
-                " / 3";
- 
-            if (estrelasEncontradas >= 3) {
- 
-                setTimeout(() => {
- 
-                    document.getElementById("estrelasJogo")
-                        .classList.add("escondido");
- 
-                    document.getElementById("final")
-                        .classList.remove("escondido");
- 
-                }, 700);
-            }
-        }
- 
- 
-        // Corações caindo
-        function criarCoracao() {
- 
+        };
+
+        grade.appendChild(botao);
+    }
+}
+
+function segundoJogo() {
+
+    cliques = 0;
+
+    document.getElementById("jogo").innerHTML = `
+        <h1>Tá ficando interessante...</h1>
+
+        <p>Agora clica no coração</p>
+
+        <button class="coracao" onclick="clicarCoracao()">❤️</button>
+
+        <p id="contador"></p>
+    `;
+}
+
+function clicarCoracao() {
+
+    cliques++;
+
+    const contador = document.getElementById("contador");
+
+    if (cliques === 1) {
+        contador.innerText = "Mais uma vez";
+    }
+
+    else if (cliques === 2) {
+        contador.innerText = "Mais uma...";
+    }
+
+    else if (cliques === 3) {
+        contador.innerText = "Agora foi";
+
+        setTimeout(ultimaParte, 700);
+    }
+}
+
+function ultimaParte() {
+
+    document.getElementById("jogo").innerHTML = `
+        <h1>Última coisa.</h1>
+
+        <p>Prometo.</p>
+
+        <p>Clica aqui:</p>
+
+        <button onclick="finalizar()">aqui</button>
+    `;
+}
+
+function finalizar() {
+
+    document.getElementById("jogo").innerHTML = `
+        <div style="font-size:70px;">❤️</div>
+
+        <h1>Pronto.</h1>
+
+        <p>
+            Era só uma desculpa pra fazer você
+            ficar aqui mais um pouquinho.
+        </p>
+
+        <p>
+            Eu gosto muito de você, meu amor ❤️
+        </p>
+
+        <p>
+            fiz isso pensando em você
+        </p>
+    `;
+
+    coracoes();
+}
+
+function coracoes() {
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
             const coracao = document.createElement("div");
- 
-            coracao.classList.add("coracao");
- 
-            const simbolos = ["❤️", "💕", "💗", "💖", "💘"];
- 
-            coracao.innerText =
-                simbolos[Math.floor(Math.random() * simbolos.length)];
- 
+
+            coracao.className = "coracao-caindo";
+            coracao.innerText = "❤️";
+
             coracao.style.left =
                 Math.random() * 100 + "vw";
- 
+
             coracao.style.animationDuration =
-                (3 + Math.random() * 4) + "s";
- 
-            coracao.style.opacity =
-                0.5 + Math.random() * 0.5;
- 
+                (3 + Math.random() * 3) + "s";
+
             document.body.appendChild(coracao);
- 
+
             setTimeout(() => {
                 coracao.remove();
-            }, 7000);
-        }
- 
-        setInterval(criarCoracao, 500);
- 
-    </script>
- 
+            }, 6000);
+
+        }, i * 150);
+    }
+}
+
+</script>
+
 </body>
 </html>
- 
+```
